@@ -1,0 +1,98 @@
+﻿<!-- select -->
+<settings>
+	<attributes>
+		<tab><![CDATA[<?php _e( 'Attributes', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'Html attributes to be included in that field.', 'MailPress' ); ?></p>]]></help>
+		<items>
+			<size>
+				<select_num>
+					<text>size=</text>
+					<min>0</min>
+					<max>10</max>
+					<default>0</default>
+				</select_num>
+			</size>
+		</items>
+		<items>
+			<class><text></text></class>
+		</items>
+		<items>
+			<style><text></text></style>
+		</items>
+		<items>
+			<is>
+				<is>
+					<values><![CDATA[<?php echo serialize( array( 'multiple', 'disabled' ) ); ?>]]></values>
+					<disabled><![CDATA[<?php echo serialize( array() ); ?>]]></disabled>
+				</is>
+			</is>
+		</items>
+		<items>
+			<misc><misc><![CDATA[<?php _e( "other attributes except 'name' & 'id'", 'MailPress' ); ?>]]></misc></misc>
+		</items>
+	</attributes>
+	<controls>
+		<tab><![CDATA[<?php _e( 'Controls', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'Basic controls and some Html attributes to be modified when field is on error.', 'MailPress' ); ?></p>]]></help>
+		<items>
+			<required>
+				<checkbox>
+					<text><![CDATA[<?php _e( 'Required', 'MailPress' ); ?>]]></text>
+					<value>1</value>
+					<disabled>0</disabled>
+					<class>controls</class>
+				</checkbox>
+			</required>
+		</items>
+	</controls>
+	<options>
+		<tab><![CDATA[<?php _e( 'Options', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'Select options can be set with two formats :', 'MailPress' ); ?></p>
+			<table border='2'>
+				<tr>
+					<th><?php _e( 'Simple text with &#8220;::&#8221; separator and new lines', 'MailPress' ); ?></th>
+					<th><?php _e( 'Must be strict xml', 'MailPress' ); ?></th>
+				</tr>
+				<tr>
+					<td><pre>
+toto::toto
+titi::titi::selected
+tata::tata</pre>
+					</td>
+					<td><pre>
+&lt;option value="toto"&gt;toto&lt;/option&gt;
+&lt;option selected="selected" value="titi"&gt;titi&lt;/option&gt;
+&lt;option value="tata"&gt;tata&lt;/option&gt;</pre>
+					</td>
+				</tr>
+				
+			</table>
+<?php if ( $this->field->form_incopy ) : ?>
+			<p><?php _e( 'In copy : does this field need to be in the mail if a copy is required ?', 'MailPress' ); ?></p>
+<?php endif; ?>]]></help>
+		<items>
+			<tag_content>
+				<textarea>
+					<text><![CDATA[<?php _e( 'Select options :', 'MailPress' ); ?>]]></text>
+					<desc><![CDATA[<?php _e( 'value::text<i>[::selected]</i> or &lt;option ...&lt;/option&gt;', 'MailPress' ); ?>]]></desc>
+				</textarea>
+			</tag_content>
+		</items>
+<?php if ( $this->field->form_incopy ) : ?>
+		<items>
+			<incopy>
+				<checkbox>
+					<text><![CDATA[<?php _e( 'In copy', 'MailPress' ); ?>]]></text>
+					<value>1</value>
+					<disabled>0</disabled>
+				</checkbox>
+			</incopy>
+		</items>
+<?php endif; ?>
+<?php if ( $protected ) : ?>
+		<hiddens>
+			<protected></protected>
+		</hiddens>
+<?php endif; ?>
+	</options>
+</settings>

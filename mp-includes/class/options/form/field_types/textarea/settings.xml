@@ -1,0 +1,83 @@
+﻿<!-- textarea -->
+<settings>
+	<attributes>
+		<tab><![CDATA[<?php _e( 'Attributes', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'Html attributes to be included in that field.', 'MailPress' ); ?></p>]]></help>
+		<items>
+			<rows>
+				<select_num>
+					<text>rows=</text>
+					<min>1</min>
+					<max>30</max>
+					<default>5</default>
+				</select_num>
+			</rows>
+			<cols>
+				<select_num>
+					<text>cols=</text>
+					<min>1</min>
+					<max>100</max>
+					<default>40</default>
+				</select_num>
+			</cols>
+		</items>
+		<items>
+			<class><text></text></class>
+		</items>
+		<items>
+			<style><text></text></style>
+		</items>
+		<items>
+			<is>
+				<is>
+					<values><![CDATA[<?php echo serialize( array( 'disabled', 'readonly' ) ); ?>]]></values>
+					<disabled><![CDATA[<?php echo serialize( array() ); ?>]]></disabled>
+				</is>
+			</is>
+		</items>
+		<items>
+			<misc><misc><![CDATA[<?php _e( "other attributes except 'name' & 'id'", 'MailPress' ); ?>]]></misc></misc>
+		</items>
+	</attributes>
+	<controls>
+		<tab><![CDATA[<?php _e( 'Controls', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'Basic controls and some Html attributes to be modified when field is on error.', 'MailPress' ); ?></p>]]></help>
+		<items>
+			<required>
+				<checkbox>
+					<text><![CDATA[<?php _e( 'Required', 'MailPress' ); ?>]]></text>
+					<value>1</value>
+					<disabled>0</disabled>
+					<class>controls</class>
+				</checkbox>
+			</required>
+		</items>
+	</controls>
+	<options>
+		<tab><![CDATA[<?php _e( 'Options', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'If you want this field to be initialised by some text', 'MailPress' ); ?></p><?php if ( $this->field->form_incopy ) : ?><p><?php _e( 'In copy : does this field need to be in the mail if a copy is required ?', 'MailPress' ); ?></p><?php endif; ?>]]></help>
+		<items>
+			<tag_content>
+				<textarea>
+					<text><![CDATA[<?php _e( 'Initial value :', 'MailPress' ); ?>]]></text>
+				</textarea>
+			</tag_content>
+		</items>
+<?php if ( $this->field->form_incopy ) : ?>
+		<items>
+			<incopy>
+				<checkbox>
+					<text><![CDATA[<?php _e( 'In copy', 'MailPress' ); ?>]]></text>
+					<value>1</value>
+					<disabled>0</disabled>
+				</checkbox>
+			</incopy>
+		</items>
+<?php endif; ?>
+<?php if ( $protected ) : ?>
+		<hiddens>
+			<protected></protected>
+		</hiddens>
+<?php endif; ?>
+	</options>
+</settings>

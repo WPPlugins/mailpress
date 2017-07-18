@@ -1,0 +1,116 @@
+/* autorefresh */
+div#mp_message {
+	float:right;
+	margin-right:20px;
+}
+div#mp_message div#message p {
+	padding:2px;
+	margin:0;
+}
+
+
+#dashboard-widgets-wrap table {
+	border-spacing:0;
+	padding : 0;
+}
+
+.num {
+	text-align:right;
+}
+
+.mp_scroll {
+	max-height:16em;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+
+.fi {
+	font-style:italic;
+}
+
+#trackingm005div table {
+	width:80%;
+}
+
+#tracking_mp_m007 td, #tracking_mp_m007 th {
+	font-size:11px;
+}
+#tracking_mp_m007 th {
+	width:75px;
+}
+#tracking_mp_m007 td.number {
+	font-weight:bold;
+	text-align:right;
+}
+
+
+span.icon {
+	height: 16px;
+	width: 16px;
+	padding:0;
+	margin:0 0 0 3px;
+	display:inline-block;
+}
+span.mailinglist {
+	background:url("../images/list_icons.png") no-repeat scroll -176px 0 transparent;
+}
+
+
+table#tracking_mp_010, #tracking_mp_010 table {
+	width:100%;
+}
+
+#tracking_mp_010 th.border, #tracking_mp_010 td.border {
+	vertical-align:top;
+	border: silver 1px solid;
+}
+
+#tracking_mp_010 th.i-1 {
+	width:0%;
+}
+
+#tracking_mp_010 th.b-1 {
+	width:100%;
+}
+
+
+#tracking_mp_010 th.i-2 {
+	width:10%;
+}
+
+#tracking_mp_010 th.b-2 {
+	width:45%;
+}
+
+
+#tracking_mp_010 th.i-3 {
+	width:5%;
+}
+
+#tracking_mp_010 th.b-3 {
+	width:30%;
+}
+
+
+#tracking_mp_010 th.i-4 {
+	width:4%;
+}
+
+#tracking_mp_010 th.b-4 {
+	width:22%;
+}
+
+
+#tracking_mp_010 th.i-5 {
+	width:2.5%;
+}
+
+#tracking_mp_010 th.b-5 {
+	width:18%;
+}
+
+
+#trackingm011div table {
+	width:100%;
+}

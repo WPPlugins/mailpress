@@ -1,0 +1,122 @@
+﻿<!-- text -->
+<?php $visitor_name = ( isset( $this->field->settings['options']['visitor_name'] ) ); ?>
+<settings>
+	<attributes>
+		<tab><![CDATA[<?php _e( 'Attributes', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'Html attributes to be included in that field.', 'MailPress' ); ?></p>]]></help>
+		<items>
+			<type>
+<?php if ( $visitor_name ) : ?>
+				<radio>
+					<text>type=</text>
+					<values><![CDATA[<?php echo serialize( array( 'text' => '"text"' ) ); ?>]]></values>
+					<disabled><![CDATA[<?php echo serialize( array( 'text' ) ); ?>]]></disabled>
+					<default>text</default>
+				</radio>
+				<hidden>
+					<value>text</value>
+				</hidden>
+<?php else : ?>
+				<radio>
+					<text>type=</text>
+					<values><![CDATA[<?php echo serialize( array( 'text' => '"text"', 'password' => '"password"', 'hidden' => '"hidden"' ) ); ?>]]></values>
+					<disabled><![CDATA[<?php echo serialize( array() ); ?>]]></disabled>
+					<default>text</default>
+				</radio>
+<?php endif; ?>
+			</type>
+		</items>
+		<items>
+			<size>
+				<select_num>
+					<text>size=</text>
+					<min>1</min>
+					<max>100</max>
+					<default>22</default>
+				</select_num>
+			</size>
+		</items>
+		<items>
+			<value><text></text></value>
+		</items>
+		<items>
+			<class><text></text></class>
+		</items>
+		<items>
+			<style><text></text></style>
+		</items>
+		<items>
+			<is>
+				<is>
+					<values><![CDATA[<?php echo serialize( array( 'disabled', 'readonly' ) ); ?>]]></values>
+					<disabled><![CDATA[<?php echo serialize( ( $visitor_name ) ? array( 'disabled', 'readonly' ) : array() ); ?>]]></disabled>
+				</is>
+			</is>
+		</items>
+		<items>
+			<misc><misc><![CDATA[<?php _e( "other attributes except 'name' & 'id'", 'MailPress' ); ?>]]></misc></misc>
+		</items>
+	</attributes>
+	<controls>
+		<tab><![CDATA[<?php _e( 'Controls', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'Basic controls and some Html attributes to be modified when field is on error.', 'MailPress' ); ?></p>]]></help>
+		<items>
+			<required>
+				<checkbox>
+					<text><![CDATA[<?php _e( 'Required', 'MailPress' ); ?>]]></text>
+					<value>1</value>
+					<disabled><?php echo ( $visitor_name ) ? '1' : '0'; ?></disabled>
+					<class>controls</class>
+				</checkbox>
+			</required>
+			<numeric>
+				<checkbox>
+					<text><![CDATA[<?php _e( 'Numeric', 'MailPress' ); ?>]]></text>
+					<value>1</value>
+					<disabled><?php echo ( $visitor_name ) ? '1' : '0'; ?></disabled>
+					<class>controls</class>
+				</checkbox>
+			</numeric>
+		</items>
+<?php if ( $visitor_name ) : ?>
+		<hiddens>
+			<required></required>
+		</hiddens>
+<?php endif; ?>
+	</controls>
+<?php if ( $visitor_name || $this->field->form_incopy ) : ?>
+	<options>
+		<tab><![CDATA[<?php _e( 'Options', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<?php if ( $visitor_name ) : ?><p><?php _e( 'If visitor is identified under WordPress, fill the field with the WP user email ?', 'MailPress' ); ?></p><?php endif; ?><?php if ( $this->field->form_incopy ) : ?><p><?php _e( 'In copy : does this field need to be in the mail if a copy is required ?', 'MailPress' ); ?></p><?php endif; ?>]]></help>
+<?php if ( $visitor_name ) : ?>
+		<items>
+			<visitor_name>
+				<radio>
+					<text><![CDATA[<?php _e( 'Filled if found : ', 'MailPress' ); ?>]]></text>
+					<values><![CDATA[<?php echo serialize( array( 1 => __( 'yes', 'MailPress' ), 0 => __( 'no', 'MailPress' ) ) ); ?>]]></values>
+					<disabled><![CDATA[<?php echo serialize( array() ); ?>]]></disabled>
+					<default>1</default>
+				</radio>
+			</visitor_name>
+		</items>
+<?php endif; ?>
+<?php if ( $this->field->form_incopy ) : ?>
+		<items>
+			<incopy>
+				<checkbox>
+					<text><![CDATA[<?php _e( 'In copy', 'MailPress' ); ?>]]></text>
+					<value>1</value>
+					<disabled><?php echo ( $visitor_name ) ? '1' : '0'; ?></disabled>
+				</checkbox>
+			</incopy>
+		</items>
+<?php endif; ?>
+<?php if ( $visitor_name || $protected ) : ?>
+		<hiddens>
+<?php if ( $protected ) : ?><protected></protected><?php endif; ?>
+<?php if ( $visitor_name ) : ?><incopy></incopy><?php endif; ?>
+		</hiddens>
+<?php endif; ?>
+	</options>
+<?php endif; ?>
+</settings>

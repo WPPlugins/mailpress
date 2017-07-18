@@ -1,0 +1,109 @@
+﻿<!-- time -->
+<?php
+$xformat_time[0] = __( '22:10', 'MailPress' );
+$xformat_time[1] = __( '10:10 am/pm', 'MailPress' );
+
+$xformat_init_value[0] = __( 'Server current time', 'MailPress' );
+$xformat_init_value[1] = __( 'Browser current time', 'MailPress' );
+?>
+<settings>
+	<attributes>
+		<tab><![CDATA[<?php _e( 'Attributes', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'Html attributes to be included in that field.', 'MailPress' ); ?></p>]]></help>
+		<items>
+			<class><text></text></class>
+		</items>
+		<items>
+			<style><text></text></style>
+		</items>
+		<items>
+			<is>
+				<is>
+					<values><![CDATA[<?php echo serialize( array( 'disabled', 'readonly' ) ); ?>]]></values>
+					<disabled><![CDATA[<?php echo serialize( array() ); ?>]]></disabled>
+				</is>
+			</is>
+		</items>
+		<items>
+			<misc><misc><![CDATA[<?php _e( "other attributes except 'name' & 'id'", 'MailPress' ); ?>]]></misc></misc>
+		</items>
+	</attributes>
+	<controls>
+		<tab><![CDATA[<?php _e( 'Controls', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'Basic controls and some Html attributes to be modified when field is on error.', 'MailPress' ); ?></p>]]></help>
+		<items>
+			<required>
+				<checkbox>
+					<text><![CDATA[<?php _e( 'Required', 'MailPress' ); ?>]]></text>
+					<value>1</value>
+					<disabled>0</disabled>
+					<class>controls</class>
+				</checkbox>
+			</required>
+		</items>
+	</controls>
+	<options>
+		<tab><![CDATA[<?php _e( 'Options', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'Time is a composite field, made of several html form fields.', 'MailPress' ); ?></p><p><?php _e( 'Format in mail is optional, WordPress default format will apply.', 'MailPress' ); ?></p><?php if ( $this->field->form_incopy ) : ?>			<p><?php _e( 'In copy : does this field need to be in the mail if a copy is required ?', 'MailPress' ); ?></p><?php endif; ?>]]></help>
+		<items>
+			<only_text>
+				<only_text><![CDATA[<b><?php _e( 'Format in form :', 'MailPress' ); ?></b>]]></only_text>
+			</only_text>
+		</items>
+		<items>
+			<form_time_format>
+				<select_opt>
+					<text><![CDATA[<?php _e( 'Time : ', 'MailPress' ); ?>]]></text>
+					<values><![CDATA[<?php echo serialize( $xformat_time ); ?>]]></values>
+					<default>0</default>
+				</select_opt>
+			</form_time_format>
+			<form_timezones>
+				<checkbox>
+					<text><![CDATA[<?php _e( 'with Time zones', 'MailPress' ); ?>]]></text>
+					<value>1</value>
+					<disabled>0</disabled>
+				</checkbox>
+			</form_timezones>
+		</items>
+		<items>
+			<form_time_init_value>
+				<select_opt>
+					<text><![CDATA[<?php _e( 'Initial value : ', 'MailPress' ); ?>]]></text>
+					<values><![CDATA[<?php echo serialize( $xformat_init_value ); ?>]]></values>
+					<default>0</default>
+				</select_opt>
+			</form_time_init_value>
+		</items>
+		<items>
+			<only_text>
+				<only_text><![CDATA[<b><?php _e( 'Format in mail :', 'MailPress' ); ?></b>]]></only_text>
+			</only_text>
+		</items>
+		<items>
+			<mail_time_format>
+				<text>
+					<text></text>
+					<size>15</size>
+					<default><![CDATA[<?php echo get_option( 'time_format' ); ?>]]></default>
+				</text>
+			</mail_time_format>
+		</items>
+<?php if ( $this->field->form_incopy ) : ?>
+		<items>
+			<incopy>
+				<checkbox>
+					<text><![CDATA[<?php _e( 'In copy', 'MailPress' ); ?>]]></text>
+					<value>1</value>
+					<disabled>0</disabled>
+				</checkbox>
+			</incopy>
+		</items>
+<?php endif; ?>
+<?php if ( $protected ) : ?>
+		<hiddens>
+			<protected></protected>
+		</hiddens>
+<?php endif; ?>
+	</options>
+</settings>

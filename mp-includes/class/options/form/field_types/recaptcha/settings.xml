@@ -1,0 +1,30 @@
+﻿<!-- recaptcha -->
+<settings>
+	<keys>
+		<tab><![CDATA[<?php _e( 'Keys', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'obsolete.', 'MailPress' ); ?></p>]]></help>
+		<items>
+			<only_text>
+				<only_text><![CDATA[<?php printf( __( 'Create a reCAPTCHA <a href="%1$s" target="new">key</a>', 'MailPress' ), 'https://www.google.com/recaptcha/admin/create' ); ?>]]></only_text>
+			</only_text>
+		</items>
+		<items>
+			<publickey>
+				<text>
+					<text><![CDATA[<?php _e( 'Public Key :', 'MailPress' ); ?>]]></text>
+					<size>38</size>
+					<default></default>
+				</text>
+			</publickey>
+		</items>
+		<items>
+			<privatekey>
+				<text>
+					<text><![CDATA[<?php _e( 'Private Key :', 'MailPress' ); ?>]]></text>
+					<size>38</size>
+					<default></default>
+				</text>
+			</privatekey>
+		</items>
+	</keys>
+</settings>

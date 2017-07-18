@@ -1,0 +1,57 @@
+﻿<!-- button -->
+<settings>
+	<attributes>
+		<tab><![CDATA[<?php _e( 'Attributes', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'Html attributes to be included in that field.', 'MailPress' ); ?></p>]]></help>
+		<items>
+			<type>
+				<radio>
+					<text>type=</text>
+					<values><![CDATA[<?php echo serialize( array( 'submit' => '"submit"', 'reset' => '"reset"', 'button' => '"button"' ) ); ?>]]></values>
+					<disabled><![CDATA[<?php echo serialize( array() ); ?>]]></disabled>
+					<default>submit</default>
+				</radio>
+			</type>
+		</items>
+		<items>
+			<value><text></text></value>
+		</items>
+		<items>
+			<class><text></text></class>
+		</items>
+		<items>
+			<style><text></text></style>
+		</items>
+		<items>
+			<is>
+				<is>
+					<values><![CDATA[<?php echo serialize( array( 'disabled' ) ); ?>]]></values>
+					<disabled><![CDATA[<?php echo serialize( array() ); ?>]]></disabled>
+				</is>
+			</is>
+		</items>
+		<items>
+			<misc><misc><![CDATA[<?php _e( "other attributes except 'name' & 'id'", 'MailPress' ); ?>]]></misc></misc>
+		</items>
+	</attributes>
+<?php if ( $this->field->form_incopy ) : ?>
+	<options>
+		<tab><![CDATA[<?php _e( 'Options', 'MailPress' ); ?>]]></tab>
+		<help><![CDATA[<p><?php _e( 'In copy : does this field need to be in the mail if a copy is required ?', 'MailPress' ); ?></p>]]></help>
+		<items>
+			<incopy>
+				<checkbox>
+					<text><![CDATA[<?php _e( 'In copy', 'MailPress' ); ?>]]></text>
+					<value>1</value>
+					<disabled>0</disabled>
+				</checkbox>
+			</incopy>
+		</items>
+<?php if ( $protected ) : ?>
+		<hiddens>
+			<protected></protected>
+		</hiddens>
+<?php endif; ?>
+	</options>
+<?php endif; ?>
+</settings>
